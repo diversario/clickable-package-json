@@ -1,7 +1,8 @@
 {
   "manifest_version": 2,
   "name": "Linkify package.json",
-  "description": "Turn dependencies names into clickable npm links",
+  "short_name": "Linkify package.json",
+  "description": "Turn dependencies into clickable npm links",
   "version": "1",
   "content_scripts": [
     {
@@ -19,5 +20,8 @@
   "permissions": [
     "activeTab",
     "*://*/*blob*package.json"
-  ]
+  ],
+  "icons": {
+    "128": "icon.png"
+  }
 }
