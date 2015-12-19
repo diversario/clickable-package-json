@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+  "name": "Clickable dependencies in package.json",
+  "version": "1",
+  "content_scripts": [
+  {
+    "matches": [
+      "<all_urls>"
+    ],
+    "js": ["jquery-2.1.4.min.js", "content.js"]
+  }
+  ]
+}
