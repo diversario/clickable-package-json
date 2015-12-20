@@ -11,7 +11,7 @@ function makeLink(el, dep_name) {
     var match = line_text.match(get_git_url)
 
     if (match && match[1]) {
-      link = 'https://' + [1]
+      link = 'https://' + match[1]
     }
   } else {
     link = '"https://npmjs.com/package/' + dep_name + '"'
