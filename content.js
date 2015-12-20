@@ -1,6 +1,6 @@
-var block_start = /^\s*"(:?dev|peer|optional|bundled)?[dD]ependencies"\s*:\s*\{\s*$/
+var block_start = /^\s*,?\s*"(:?dev|peer|optional|bundled)?[dD]ependencies"\s*:\s*\{\s*$/
   , block_end = /}/
-  , is_git_link = /^\s*".*"\s*:\s*"git:\/\/.*"\s*,?\s*$/
+  , is_git_link = /^\s*,?\s*".*"\s*:\s*"git:\/\/.*"\s*,?\s*$/
   , get_git_url = /git:\/\/(.*)\.git.*?/
 
 function makeLink(el, dep_name) {
