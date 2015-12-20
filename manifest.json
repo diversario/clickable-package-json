@@ -2,8 +2,8 @@
   "manifest_version": 2,
   "name": "Linkify package.json",
   "short_name": "Linkify package.json",
-  "description": "Turn dependencies into clickable npm links",
-  "version": "1",
+  "description": "Turn dependencies into clickable npm or github links",
+  "version": "2",
   "content_scripts": [
     {
       "matches": ["*://*/*blob*package.json"],
