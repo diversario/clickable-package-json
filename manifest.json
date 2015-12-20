@@ -3,10 +3,10 @@
   "name": "Linkify package.json",
   "short_name": "Linkify package.json",
   "description": "Turn dependencies into clickable npm or github links",
-  "version": "2.2",
+  "version": "2.3",
   "content_scripts": [
     {
-      "matches": ["*://*/*blob*package.json"],
+      "matches": ["<all_urls>"],
       "js": [
         "jquery-2.1.4.min.js",
         "content.js"
@@ -19,7 +19,8 @@
   },
   "permissions": [
     "activeTab",
-    "*://*/*blob*package.json"
+    "webNavigation",
+    "<all_urls>"
   ],
   "icons": {
     "128": "icon.png"

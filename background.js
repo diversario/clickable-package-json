@@ -7,3 +7,7 @@ chrome.tabs.onUpdated.addListener(function(tabId, props) {
     call_linkify(tabId)
   }
 });
+
+chrome.webNavigation.onCompleted.addListener(function (details) {
+  call_linkify(details.tabId)
+})
