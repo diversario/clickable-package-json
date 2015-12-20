@@ -1,7 +1,8 @@
 var block_start = /^\s*,?\s*"(:?dev|peer|optional|bundled)?[dD]ependencies"\s*:\s*\{\s*$/
   , block_end = /}/
-  , is_git_link = /^\s*,?\s*".*"\s*:\s*"git:\/\/.*"\s*,?\s*$/
-  , get_git_url = /git:\/\/(.*)\.git.*?/
+  , is_git_link = /^\s*,?\s*".*"\s*:\s*"(git|https?):\/\/.*"\s*,?\s*$/
+  , get_git_url = /(?:git|https?):\/\/(.*)\.git.*?/
+  , dependency_name = /\s*"([^"]+)".*$/
 
 function makeLink(el, dep_name) {
   var line_text = el.innerText
@@ -25,12 +26,12 @@ function makeLink(el, dep_name) {
   }
 
   if (link) {
-    $(el).find('span')[0].innerHTML = '<a href=' + link + '>"' + dep_name + '"</a>'
+    $(el).find('span')[0].innerHTML = '"<a href=' + link + '>' + dep_name + '</a>"'
   }
 }
 
 function getDepName(el) {
-  var match = el.innerText.match(/\s*"([^"]+)".*$/)
+  var match = el.innerText.match(dependency_name)
   return match && match[1]
 }
 
