@@ -3,7 +3,7 @@
   "name": "Linkify package.json",
   "short_name": "Linkify package.json",
   "description": "Turn dependencies into clickable npm or github links",
-  "version": "2.1",
+  "version": "2.2",
   "content_scripts": [
     {
       "matches": ["*://*/*blob*package.json"],
