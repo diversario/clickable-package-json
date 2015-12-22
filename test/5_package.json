@@ -67,7 +67,7 @@
     "regenerate":                     "1.2.x",
     "sinon":                          "1.12.x",
     "unicode-6.3.0":                  "0.1.x",
-    "<script>console.log('Whoops, XSS!')</script>": "*"
+    "<script>console.log(42)</script>": "*"
   }
 
   , "license": "(MIT AND JSON)",

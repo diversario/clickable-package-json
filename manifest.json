@@ -18,6 +18,7 @@
     "persistent": false
   },
   "permissions": [
+    "tabs",
     "activeTab",
     "webNavigation",
     "<all_urls>"

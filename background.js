@@ -1,5 +1,9 @@
 function call_linkify(tabId) {
-  chrome.tabs.sendMessage(tabId, {}, function() {});
+  chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+    var url = tabs[0].url
+
+    chrome.tabs.sendMessage(tabId, {url: url}, function() {});
+  });
 }
 
 chrome.tabs.onUpdated.addListener(function(tabId, props) {

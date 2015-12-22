@@ -3,6 +3,7 @@ var block_start = /^\s*,?\s*"(:?dev|peer|optional|bundled)?[dD]ependencies"\s*:\
   , is_git_link = /^\s*,?\s*".*"\s*:\s*"(git|https?):\/\/.*"\s*,?\s*$/
   , get_git_url = /(?:git|https?):\/\/(.*)\.git.*?/
   , dependency_name = /\s*"([^"]+)".*$/
+  , is_package_json = /\/blob\/.*package\.json/
 
 function get_gh_username_repo(line_text) {
   var parts = line_text.split(':')[1].trim().split('"')[1].split('/')
@@ -60,6 +61,8 @@ function linkify() {
   }
 }
 
-chrome.extension.onMessage.addListener(function () {
-  linkify()
+chrome.extension.onMessage.addListener(function (msg) {
+  if (is_package_json.test(msg.url)) {
+    linkify()
+  }
 });
