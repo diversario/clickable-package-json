@@ -4,6 +4,8 @@ var block_start = /^\s*,?\s*"(:?dev|peer|optional|bundled)?[dD]ependencies"\s*:\
   , get_git_url = /(?:git|https?):\/\/(.*)\.git.*?/
   , dependency_name = /\s*"([^"]+)".*$/
   , is_package_json = /\/blob\/.*package\.json/
+  , github_root = 'https://github.com/'
+  , npm_root = 'https://npmjs.com/package/'
 
 function get_gh_username_repo(line_text) {
   var parts = line_text.split(':')[1].trim().split('"')[1].split('/')
@@ -25,11 +27,11 @@ function makeLink(el, dep_name) {
     } else { // maybe it's a "user/repo" format
       try {
         var info = get_gh_username_repo(line_text)
-        link = `https://github.com/${info.username}/${info.repo}`
+        link = `${github_root}${info.username}/${info.repo}`
       } catch(e) {}
     }
   } else {
-    link = `"https://npmjs.com/package/${dep_name}"`
+    link = `"${npm_root}${dep_name}"`
   }
 
   if (link) {
